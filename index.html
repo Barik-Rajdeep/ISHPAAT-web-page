@@ -13,7 +13,6 @@
     box-sizing: border-box;
 }
 
-
 body {
     font-family: 'Poppins', sans-serif;
     background: #000;
@@ -21,7 +20,6 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
 }
-
 
 /* Stars Background */
 .stars {
@@ -31,7 +29,6 @@ body {
     z-index: -1;
     pointer-events: none;
 }
-
 
 .star {
     position: absolute;
@@ -43,19 +40,17 @@ body {
     box-shadow: 0 0 4px rgba(255,255,255,0.5);
 }
 
-
 @keyframes twinkle {
     0%, 100% { opacity: 0.3; transform: scale(1); }
     50% { opacity: 1; transform: scale(1.2); }
 }
-
 
 /* Navbar */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 5%;
+    padding: 1.5rem 6%;
     position: fixed;
     top: 0;
     width: 100%;
@@ -66,7 +61,6 @@ nav {
     border-bottom: 1px solid rgba(255,60,60,0.2);
 }
 
-
 .logo {
     height: 60px;
     width: auto;
@@ -75,20 +69,17 @@ nav {
     cursor: pointer;
 }
 
-
 .logo:hover {
     transform: scale(1.05);
     box-shadow: 0 0 20px rgba(255,60,60,0.5);
 }
 
-
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 2rem;
+    gap: 3rem;
     align-items: center;
 }
-
 
 .nav-links li {
     cursor: pointer;
@@ -97,7 +88,6 @@ nav {
     padding: 0.5rem 0;
     transition: all 0.3s ease;
 }
-
 
 .nav-links li::after {
     content: "";
@@ -110,16 +100,13 @@ nav {
     transition: width 0.3s ease;
 }
 
-
 .nav-links li:hover::after {
     width: 100%;
 }
 
-
 .nav-links li:hover {
     color: #ff3c3c;
 }
-
 
 .menu-toggle {
     display: none;
@@ -130,7 +117,7 @@ nav {
     border: none;
 }
 
-/* Cover Section - UPDATED: No reddish overlay, no glow, fully responsive */
+/* Cover Section */
 .cover {
     min-height: 100vh;
     background: url('cover.jpg') center/cover no-repeat;
@@ -157,7 +144,7 @@ nav {
     z-index: 2;
     position: relative;
     width: 100%;
-    padding: 0 2rem;
+    padding: 0 3rem;
 }
 
 .cover h1 {
@@ -177,37 +164,33 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 120px 5% 80px;
+    padding: 140px 6% 100px;
     background: radial-gradient(circle at center, rgba(255,60,60,0.05) 0%, transparent 70%);
 }
-
 
 .hero-content {
     display: grid;
     grid-template-columns: 1fr 1.2fr;
-    gap: 4rem;
+    gap: 6rem;
     max-width: 1200px;
     width: 100%;
     align-items: center;
 }
 
-
 .hero-text h2 {
     font-size: clamp(2rem, 4vw, 3.5rem);
     color: #ff3c3c;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     font-weight: 600;
 }
-
 
 .hero-desc {
     font-size: 1.1rem;
     line-height: 1.8;
     color: #ddd;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     text-align: justify;
 }
-
 
 .btn {
     display: inline-block;
@@ -224,7 +207,6 @@ nav {
     overflow: hidden;
 }
 
-
 .btn:hover {
     transform: translateY(-3px);
     box-shadow: 0 15px 40px rgba(29,185,84,0.4);
@@ -232,12 +214,10 @@ nav {
     color: #fff;
 }
 
-
 .hero-image {
     display: flex;
     justify-content: center;
 }
-
 
 .hero-image img {
     max-width: 100%;
@@ -247,28 +227,24 @@ nav {
     transition: all 0.4s ease;
 }
 
-
 .hero-image img:hover {
     transform: scale(1.05) rotate(1deg);
 }
 
-
 /* Sections */
 section {
-    padding: 100px 5%;
+    padding: 140px 6%;
     max-width: 1400px;
     margin: 0 auto;
 }
 
-
 .section-title {
     font-size: clamp(2.5rem, 5vw, 4rem);
     color: #ff3c3c;
-    margin-bottom: 3rem;
+    margin-bottom: 5rem;
     text-align: center;
     position: relative;
 }
-
 
 .section-title::after {
     content: "";
@@ -281,220 +257,226 @@ section {
     background: linear-gradient(90deg, #ff3c3c, transparent);
 }
 
-
-/* Members */
+/* Members - MAXIMUM gaps and spacing */
 .members {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 2rem;
-    justify-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 260px));
+    justify-content: center;
+    gap: 6rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 2rem 0;
 }
-
 
 .card {
     position: relative;
     width: 100%;
-    max-width: 220px;
-    padding: 1.5rem;
+    min-height: 200px;
+    padding: 3rem 2rem 2rem;
     background: linear-gradient(145deg, #1a1a1a, #111);
-    border-radius: 20px;
+    border-radius: 24px;
     transition: all 0.4s ease;
     overflow: visible;
     border: 1px solid rgba(255,60,60,0.1);
+    cursor: pointer;
 }
 
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255,60,60,0.05);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    border-radius: 24px;
+    z-index: 0;
+}
 
 .card-img {
     position: absolute;
-    top: -100px;
+    top: -90px;
     left: 50%;
-    transform: translateX(-50%) scale(0.8);
+    transform: translateX(-50%) scale(0.85);
     opacity: 0;
     transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    z-index: 2;
+    z-index: 3;
 }
-
 
 .card-img img {
-    width: 160px;
-    height: 160px;
+    width: 150px;
+    height: 150px;
     object-fit: cover;
-    border-radius: 16px;
+    border-radius: 18px;
     border: 3px solid #ff3c3c;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
 }
-
 
 .card-content {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     text-align: center;
     transition: all 0.4s ease;
+    padding-top: 1.5rem;
 }
-
 
 .card-content h3 {
     color: #ff3c3c;
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+    margin-bottom: 0.75rem;
     font-weight: 600;
 }
 
-
 .card-content p {
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: #ccc;
 }
 
-
 .card:hover {
-    transform: translateY(-20px);
+    transform: translateY(-12px);
     box-shadow: 0 25px 50px rgba(255,60,60,0.3);
 }
 
+.card:hover::before {
+    opacity: 1;
+}
 
 .card:hover .card-img {
-    top: -130px;
+    top: -110px;
     opacity: 1;
     transform: translateX(-50%) scale(1);
 }
 
-
 .card:hover .card-content {
-    margin-top: 60px;
+    margin-top: 55px;
 }
-
 
 /* Music */
 .music {
     background: linear-gradient(135deg, #0a0a0a 0%, #000 100%);
 }
 
-
 .album-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 4rem;
     justify-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
-
 
 .album-card {
     width: 100%;
-    max-width: 300px;
+    max-width: 340px;
     background: linear-gradient(145deg, #1a1a1a, #111);
-    border-radius: 20px;
+    border-radius: 24px;
     overflow: hidden;
     transition: all 0.4s ease;
     border: 1px solid rgba(255,60,60,0.1);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
 }
-
 
 .album-card img {
     width: 100%;
-    height: 280px;
+    height: 320px;
     object-fit: cover;
     transition: transform 0.4s ease;
 }
-
 
 .album-card:hover img {
     transform: scale(1.05);
 }
 
-
 .album-card-content {
-    padding: 1.5rem;
+    padding: 2.5rem;
 }
-
 
 .album-card h3 {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     color: #fff;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
 }
-
 
 .album-card h5 {
     color: #ff3c3c;
     font-weight: 500;
-    margin-bottom: 0.8rem;
-    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
 }
-
 
 .album-card p {
     color: #ccc;
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
+    margin-bottom: 2rem;
+    line-height: 1.7;
 }
-
 
 /* Shows */
 .shows-container {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
 }
-
 
 .show {
     background: linear-gradient(145deg, #1a1a1a, #111);
-    margin: 1rem 0;
-    padding: 2rem;
-    border-radius: 16px;
+    margin: 2rem 0;
+    padding: 3rem;
+    border-radius: 20px;
     text-align: center;
-    border-left: 4px solid #ff3c3c;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    border-left: 5px solid #ff3c3c;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
     transition: all 0.3s ease;
 }
 
-
 .show:hover {
-    transform: translateX(10px);
-    box-shadow: 0 15px 40px rgba(255,60,60,0.2);
+    transform: translateX(15px);
+    box-shadow: 0 20px 50px rgba(255,60,60,0.25);
 }
 
-
 .show i {
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: #ff3c3c;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     display: block;
 }
 
-
 /* Contact */
 .contact-content {
-    max-width: 600px;
+    max-width: 700px;
     margin: 0 auto;
     text-align: center;
 }
 
-
 .contact-content p {
-    font-size: 1.2rem;
-    margin: 1rem 0;
+    font-size: 1.4rem;
+    margin: 2rem 0;
     word-break: break-all;
 }
 
+.contact-content a {
+    color: #ff3c3c;
+    text-decoration: none;
+}
+
+.contact-content a:hover {
+    text-decoration: underline;
+}
 
 /* Footer */
 footer {
     background: #111;
-    padding: 2rem;
+    padding: 3rem;
     text-align: center;
     border-top: 1px solid rgba(255,60,60,0.1);
 }
 
-
 .footer-content {
     opacity: 0.7;
-    font-size: 0.9rem;
+    font-size: 1rem;
 }
 
-
-/* Responsive Design - UPDATED for cover responsiveness */
+/* Responsive Design */
 @media (max-width: 1024px) {
     .cover {
         min-height: 80vh;
@@ -503,19 +485,22 @@ footer {
     .hero-content {
         grid-template-columns: 1fr;
         text-align: center;
-        gap: 2rem;
+        gap: 4rem;
     }
     
     .members {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 1.5rem;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 240px));
+        gap: 5rem 3rem;
+    }
+    
+    section {
+        padding: 120px 5%;
     }
 }
 
-
 @media (max-width: 768px) {
     nav {
-        padding: 1rem 4%;
+        padding: 1.25rem 4%;
     }
     
     .logo {
@@ -532,11 +517,12 @@ footer {
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
-        padding: 2rem 0;
+        padding: 3rem 0;
         transform: translateY(-100%);
         opacity: 0;
         visibility: hidden;
         transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        gap: 2rem;
     }
     
     .nav-links.active {
@@ -555,29 +541,34 @@ footer {
     }
     
     .hero {
-        padding: 100px 3% 60px;
+        padding: 120px 4% 80px;
     }
     
     section {
-        padding: 80px 3%;
+        padding: 100px 4%;
     }
     
     .members {
-        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-        gap: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 220px));
+        gap: 4rem 2rem;
+        padding: 2rem 1rem 0;
     }
     
     .card {
-        max-width: 180px;
-        padding: 1rem;
+        min-height: 180px;
+        padding: 2rem 1.5rem 1.5rem;
+    }
+    
+    .card-img img {
+        width: 130px;
+        height: 130px;
     }
     
     .album-container {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
+        gap: 3rem;
     }
 }
-
 
 @media (max-width: 480px) {
     .cover {
@@ -588,26 +579,34 @@ footer {
         font-size: 1rem;
     }
     
-    .card-img img {
-        width: 130px;
-        height: 130px;
-    }
-    
-    .show {
-        padding: 1.5rem;
-    }
-    
     .section-title {
-        font-size: 2rem;
+        margin-bottom: 4rem;
+    }
+    
+    .members {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+        justify-items: center;
+    }
+    
+    .card {
+        max-width: 280px;
+    }
+    
+    .card-img img {
+        width: 120px;
+        height: 120px;
+    }
+    
+    section {
+        padding: 80px 3%;
     }
 }
-
 
 /* Smooth scrolling */
 html {
     scroll-behavior: smooth;
 }
-
 
 /* Loading animation */
 .fade-in {
@@ -616,7 +615,6 @@ html {
     transition: all 0.8s ease;
 }
 
-
 .fade-in.visible {
     opacity: 1;
     transform: translateY(0);
@@ -624,11 +622,9 @@ html {
 </style>
 </head>
 
-
 <body>
     <!-- Stars Background -->
     <div class="stars" id="stars"></div>
-
 
     <!-- Navbar -->
     <nav>
@@ -645,14 +641,12 @@ html {
         </button>
     </nav>
 
-
     <!-- Cover -->
     <div class="cover" id="home">
         <div class="cover-content fade-in">
             <h1>ISHPAAT</h1>
         </div>
     </div>
-
 
     <!-- Hero -->
     <section class="hero fade-in">
@@ -673,7 +667,6 @@ html {
             </div>
         </div>
     </section>
-
 
     <!-- Members -->
     <section id="members" class="fade-in">
@@ -727,7 +720,6 @@ html {
         </div>
     </section>
 
-
     <!-- Music -->
     <section id="music" class="music fade-in">
         <h2 class="section-title">Our Music</h2>
@@ -754,7 +746,6 @@ html {
         </div>
     </section>
 
-
     <!-- Shows -->
     <section id="shows" class="fade-in">
         <h2 class="section-title">Upcoming Shows</h2>
@@ -767,23 +758,20 @@ html {
         </div>
     </section>
 
-
     <!-- Contact -->
     <section id="contact" class="fade-in">
         <h2 class="section-title">Get In Touch</h2>
         <div class="contact-content">
             <p><i class="fas fa-envelope"></i> ishpaatband@gmail.com</p>
             <p><i class="fab fa-spotify"></i> Search "ISHPAAT" on Spotify</p>
-            <p><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/ishpaat_official?igsh=MWk3dTFrNDJqdWZ0eQ==">@ishpaat_official</a></p>
+            <p><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/ishpaat_official?igsh=MWk3dTFrNDJqdWZ0eQ==" target="_blank" rel="noopener">@ishpaat_official</a></p>
         </div>
     </section>
-
 
     <!-- Footer -->
     <footer>
         <p class="footer-content">© 2026 ISHPAAT | All Rights Reserved | Made with 🔥 in Kolkata</p>
     </footer>
-
 
     <script>
         // Stars Animation
@@ -798,20 +786,17 @@ html {
             starsContainer.appendChild(star);
         }
 
-
         // Smooth Scroll
         function scrollToSection(id) {
             document.getElementById(id).scrollIntoView({ behavior: "smooth" });
             toggleMenu(); // Close mobile menu
         }
 
-
         // Mobile Menu Toggle
         function toggleMenu() {
             const navLinks = document.getElementById('navLinks');
             navLinks.classList.toggle('active');
         }
-
 
         // Close mobile menu when clicking outside
         document.addEventListener('click', (e) => {
@@ -822,13 +807,11 @@ html {
             }
         });
 
-
         // Fade In Animation on Scroll
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         };
-
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -838,11 +821,9 @@ html {
             });
         }, observerOptions);
 
-
         document.querySelectorAll('.fade-in').forEach(el => {
             observer.observe(el);
         });
-
 
         // Navbar background on scroll
         window.addEventListener('scroll', () => {
