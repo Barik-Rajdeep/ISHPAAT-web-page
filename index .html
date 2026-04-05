@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ISHPAAT | Bengali Rock Band</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Noto+Serif+Bengali:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #000;
+    color: #fff;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+
+/* Stars Background */
+.stars {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: #fff;
+    border-radius: 50%;
+    animation: twinkle 3s infinite;
+    box-shadow: 0 0 4px rgba(255,255,255,0.5);
+}
+
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+
+
+/* Navbar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(0,0,0,0.95);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,60,60,0.2);
+}
+
+
+.logo {
+    height: 60px;
+    width: auto;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+
+.logo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255,60,60,0.5);
+}
+
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
+}
+
+
+.nav-links li {
+    cursor: pointer;
+    font-weight: 500;
+    position: relative;
+    padding: 0.5rem 0;
+    transition: all 0.3s ease;
+}
+
+
+.nav-links li::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #ff3c3c, #ff6b6b);
+    transition: width 0.3s ease;
+}
+
+
+.nav-links li:hover::after {
+    width: 100%;
+}
+
+
+.nav-links li:hover {
+    color: #ff3c3c;
+}
+
+
+.menu-toggle {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #ff3c3c;
+    background: none;
+    border: none;
+}
+
+/* Cover Section - UPDATED: No reddish overlay, no glow, fully responsive */
+.cover {
+    min-height: 100vh;
+    background: url('cover.jpg') center/cover no-repeat;
+    background-attachment: scroll;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.cover-content {
+    text-align: center;
+    z-index: 2;
+    position: relative;
+    width: 100%;
+    padding: 0 2rem;
+}
+
+.cover h1 {
+    font-size: clamp(3rem, 8vw, 10rem);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #fff;
+    margin-bottom: 2rem;
+    text-shadow: none;
+    filter: none;
+    animation: none;
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 5% 80px;
+    background: radial-gradient(circle at center, rgba(255,60,60,0.05) 0%, transparent 70%);
+}
+
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 4rem;
+    max-width: 1200px;
+    width: 100%;
+    align-items: center;
+}
+
+
+.hero-text h2 {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    color: #ff3c3c;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+
+.hero-desc {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #ddd;
+    margin-bottom: 2rem;
+    text-align: justify;
+}
+
+
+.btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: linear-gradient(45deg, #ff3c3c, #ff6b6b);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(255,60,60,0.3);
+    font-size: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(29,185,84,0.4);
+    background: linear-gradient(45deg, #1DB954, #1ED760);
+    color: #fff;
+}
+
+
+.hero-image {
+    display: flex;
+    justify-content: center;
+}
+
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(255,60,60,0.3);
+    transition: all 0.4s ease;
+}
+
+
+.hero-image img:hover {
+    transform: scale(1.05) rotate(1deg);
+}
+
+
+/* Sections */
+section {
+    padding: 100px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+
+.section-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: #ff3c3c;
+    margin-bottom: 3rem;
+    text-align: center;
+    position: relative;
+}
+
+
+.section-title::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, #ff3c3c, transparent);
+}
+
+
+/* Members */
+.members {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+}
+
+
+.card {
+    position: relative;
+    width: 100%;
+    max-width: 220px;
+    padding: 1.5rem;
+    background: linear-gradient(145deg, #1a1a1a, #111);
+    border-radius: 20px;
+    transition: all 0.4s ease;
+    overflow: visible;
+    border: 1px solid rgba(255,60,60,0.1);
+}
+
+
+.card-img {
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%) scale(0.8);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: 2;
+}
+
+
+.card-img img {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 16px;
+    border: 3px solid #ff3c3c;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+
+.card-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    transition: all 0.4s ease;
+}
+
+
+.card-content h3 {
+    color: #ff3c3c;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+
+.card-content p {
+    font-size: 1rem;
+    color: #ccc;
+}
+
+
+.card:hover {
+    transform: translateY(-20px);
+    box-shadow: 0 25px 50px rgba(255,60,60,0.3);
+}
+
+
+.card:hover .card-img {
+    top: -130px;
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+}
+
+
+.card:hover .card-content {
+    margin-top: 60px;
+}
+
+
+/* Music */
+.music {
+    background: linear-gradient(135deg, #0a0a0a 0%, #000 100%);
+}
+
+
+.album-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+}
+
+
+.album-card {
+    width: 100%;
+    max-width: 300px;
+    background: linear-gradient(145deg, #1a1a1a, #111);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    border: 1px solid rgba(255,60,60,0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+
+.album-card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+
+.album-card:hover img {
+    transform: scale(1.05);
+}
+
+
+.album-card-content {
+    padding: 1.5rem;
+}
+
+
+.album-card h3 {
+    font-size: 1.4rem;
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+
+
+.album-card h5 {
+    color: #ff3c3c;
+    font-weight: 500;
+    margin-bottom: 0.8rem;
+    font-size: 0.9rem;
+}
+
+
+.album-card p {
+    color: #ccc;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+
+/* Shows */
+.shows-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+
+.show {
+    background: linear-gradient(145deg, #1a1a1a, #111);
+    margin: 1rem 0;
+    padding: 2rem;
+    border-radius: 16px;
+    text-align: center;
+    border-left: 4px solid #ff3c3c;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+
+.show:hover {
+    transform: translateX(10px);
+    box-shadow: 0 15px 40px rgba(255,60,60,0.2);
+}
+
+
+.show i {
+    font-size: 2rem;
+    color: #ff3c3c;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+
+/* Contact */
+.contact-content {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+.contact-content p {
+    font-size: 1.2rem;
+    margin: 1rem 0;
+    word-break: break-all;
+}
+
+
+/* Footer */
+footer {
+    background: #111;
+    padding: 2rem;
+    text-align: center;
+    border-top: 1px solid rgba(255,60,60,0.1);
+}
+
+
+.footer-content {
+    opacity: 0.7;
+    font-size: 0.9rem;
+}
+
+
+/* Responsive Design - UPDATED for cover responsiveness */
+@media (max-width: 1024px) {
+    .cover {
+        min-height: 80vh;
+    }
+    
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+    }
+    
+    .members {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+    }
+}
+
+
+@media (max-width: 768px) {
+    nav {
+        padding: 1rem 4%;
+    }
+    
+    .logo {
+        height: 50px;
+    }
+    
+    .nav-links {
+        position: fixed;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background: rgba(0,0,0,0.98);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 2rem 0;
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+    
+    .nav-links.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .menu-toggle {
+        display: block;
+    }
+    
+    .cover {
+        min-height: 70vh;
+        background-attachment: scroll;
+    }
+    
+    .hero {
+        padding: 100px 3% 60px;
+    }
+    
+    section {
+        padding: 80px 3%;
+    }
+    
+    .members {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 1rem;
+    }
+    
+    .card {
+        max-width: 180px;
+        padding: 1rem;
+    }
+    
+    .album-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .cover {
+        min-height: 60vh;
+    }
+    
+    .hero-desc {
+        font-size: 1rem;
+    }
+    
+    .card-img img {
+        width: 130px;
+        height: 130px;
+    }
+    
+    .show {
+        padding: 1.5rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+}
+
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* Loading animation */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+</style>
+</head>
+
+
+<body>
+    <!-- Stars Background -->
+    <div class="stars" id="stars"></div>
+
+
+    <!-- Navbar -->
+    <nav>
+        <img src="logo.png" class="logo" onclick="scrollToSection('home')" title="ISHPAAT Logo" alt="ISHPAAT Band Logo">
+        <ul class="nav-links" id="navLinks">
+            <li onclick="scrollToSection('home')">Home</li>
+            <li onclick="scrollToSection('members')">Members</li>
+            <li onclick="scrollToSection('music')">Music</li>
+            <li onclick="scrollToSection('shows')">Shows</li>
+            <li onclick="scrollToSection('contact')">Contact</li>
+        </ul>
+        <button class="menu-toggle" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+
+    <!-- Cover -->
+    <div class="cover" id="home">
+        <div class="cover-content fade-in">
+            <h1>ISHPAAT</h1>
+        </div>
+    </div>
+
+
+    <!-- Hero -->
+    <section class="hero fade-in">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h2>Bengali Alternative Hard Rock</h2>
+                <p class="hero-desc">
+                    ISHPAAT is a Bengali Alternative & Hard Rock band forging raw emotion into sound. 
+                    Born from the streets and soul of Bengal, we create original music that blends 
+                    heavy riffs, deep lyrics, and powerful energy.
+                </p>
+                <a href="https://open.spotify.com/track/1qSL4dY2W8R5ZIEDGReKPv" target="_blank" rel="noopener" class="btn">
+                    <i class="fab fa-spotify"></i> Listen Now
+                </a>
+            </div>
+            <div class="hero-image">
+                <img src="band.jpg" alt="ISHPAAT band members performing live">
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Members -->
+    <section id="members" class="fade-in">
+        <h2 class="section-title">Band Members</h2>
+        <div class="members">
+            <div class="card">
+                <div class="card-img">
+                    <img src="member1.png" alt="Sagnick - Vocal">
+                </div>
+                <div class="card-content">
+                    <h3>Vocal</h3>
+                    <p>Sagnick</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img">
+                    <img src="member2.png" alt="Lead Guitar">
+                </div>
+                <div class="card-content">
+                    <h3>Guitar</h3>
+                    <p>Lead Guitarist</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img">
+                    <img src="member3.png" alt="Rajdeep - Bass">
+                </div>
+                <div class="card-content">
+                    <h3>Bass</h3>
+                    <p>Rajdeep</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img">
+                    <img src="member4.png" alt="Keyboard">
+                </div>
+                <div class="card-content">
+                    <h3>Keyboard</h3>
+                    <p>Keyboardist</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img">
+                    <img src="member5.png" alt="Drums">
+                </div>
+                <div class="card-content">
+                    <h3>Drums</h3>
+                    <p>Drummer</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Music -->
+    <section id="music" class="music fade-in">
+        <h2 class="section-title">Our Music</h2>
+        <div class="album-container">
+            <div class="album-card">
+                <img src="album1.png" alt="Ei Sondhay Single">
+                <div class="album-card-content">
+                    <h3>Ei Sondhay</h3>
+                    <h5>Single - 2025</h5>
+                    <p>Original Bengali Alternative Rock track with deep lyrical storytelling and powerful instrumentation.</p>
+                    <a href="https://open.spotify.com/track/1qSL4dY2W8R5ZIEDGReKPv?si=6b4a2eb80ec14007" target="_blank" rel="noopener" class="btn">
+                        <i class="fab fa-spotify"></i> Listen
+                    </a>
+                </div>
+            </div>
+            <div class="album-card">
+                <img src="album2.jpg" alt="Coming Soon">
+                <div class="album-card-content">
+                    <h3>Coming Soon</h3>
+                    <p>Exciting new tracks coming soon! Stay tuned for more heavy riffs and powerful Bengali rock.</p>
+                    <a href="#" class="btn" onclick="alert('Coming Soon!')">Notify Me</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Shows -->
+    <section id="shows" class="fade-in">
+        <h2 class="section-title">Upcoming Shows</h2>
+        <div class="shows-container">
+            <div class="show">
+                <i class="fas fa-microphone-alt"></i>
+                <h3>Kolkata Live</h3>
+                <p>April 2026 | Kolkata, West Bengal</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Contact -->
+    <section id="contact" class="fade-in">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-content">
+            <p><i class="fas fa-envelope"></i> ishpaatband@gmail.com</p>
+            <p><i class="fab fa-spotify"></i> Search "ISHPAAT" on Spotify</p>
+            <p><i class="fab fa-instagram"></i> @ishpaatband (Coming Soon)</p>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <p class="footer-content">© 2026 ISHPAAT | All Rights Reserved | Made with 🔥 in Kolkata</p>
+    </footer>
+
+
+    <script>
+        // Stars Animation
+        const starsContainer = document.getElementById('stars');
+        for(let i = 0; i < 200; i++) {
+            let star = document.createElement('div');
+            star.classList.add('star');
+            star.style.top = Math.random() * 100 + '%';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            star.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            starsContainer.appendChild(star);
+        }
+
+
+        // Smooth Scroll
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+            toggleMenu(); // Close mobile menu
+        }
+
+
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const nav = document.querySelector('nav');
+            const menuToggle = document.querySelector('.menu-toggle');
+            if (!nav.contains(e.target) && !menuToggle.contains(e.target)) {
+                document.getElementById('navLinks').classList.remove('active');
+            }
+        });
+
+
+        // Fade In Animation on Scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(0,0,0,0.98)';
+            } else {
+                nav.style.background = 'rgba(0,0,0,0.95)';
+            }
+        });
+    </script>
+</body>
+</html>
