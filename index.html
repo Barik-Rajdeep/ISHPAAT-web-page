@@ -62,7 +62,7 @@ nav {
 }
 
 .logo {
-    height: 60px;
+    height: 100px;
     width: auto;
     border-radius: 50%;
     transition: all 0.3s ease;
@@ -117,10 +117,12 @@ nav {
     border: none;
 }
 
-/* Cover Section */
+/* Cover Section - FULLY RESPONSIVE */
 .cover {
-    min-height: 100vh;
+    width: 100%;
+    height: clamp(420px, 75vh, 100vh);
     background: url('cover.jpg') center/cover no-repeat;
+    background-position: center center;
     background-attachment: scroll;
     position: relative;
     display: flex;
@@ -140,7 +142,8 @@ nav {
 }
 
 .cover-content {
-    text-align: center;
+    margin-top: 12rem;
+  text-align: center;
     z-index: 2;
     position: relative;
     width: 100%;
@@ -479,7 +482,8 @@ footer {
 /* Responsive Design */
 @media (max-width: 1024px) {
     .cover {
-        min-height: 80vh;
+        height: clamp(380px, 70vh, 85vh);
+        background-position: center center;
     }
     
     .hero-content {
@@ -536,8 +540,8 @@ footer {
     }
     
     .cover {
-        min-height: 70vh;
-        background-attachment: scroll;
+        height: clamp(340px, 65vh, 75vh);
+        background-position: center top;
     }
     
     .hero {
@@ -572,7 +576,8 @@ footer {
 
 @media (max-width: 480px) {
     .cover {
-        min-height: 60vh;
+        height: clamp(300px, 60vh, 70vh);
+        background-position: center top;
     }
     
     .hero-desc {
